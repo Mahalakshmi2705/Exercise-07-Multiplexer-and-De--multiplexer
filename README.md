@@ -1,10 +1,16 @@
 Exercise-07-Multiplexer-and-De-multiplexer
 
-AIM: To implement 4 X1 multiplexer and 1X4 de multiplexer using verilog and validate its outputs
+AIM: 
 
-HARDWARE REQUIRED: PC, Cyclone II , USB flasher
+To implement 4 X1 multiplexer and 1X4 de multiplexer using verilog and validate its outputs
 
-SOFTWARE REQUIRED: Quartus prime
+HARDWARE REQUIRED: 
+
+PC, Cyclone II , USB flasher
+
+SOFTWARE REQUIRED: 
+
+Quartus prime
 
 THEORY: 
 
@@ -70,77 +76,49 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
 Procedure:
 
-    Start the module using module projname(). Declare the inputs and outputs along with the select lines according to the multiplexer and demultiplexer. Use wire to assign intermediate outputs. Use and,or and not gates to get the desired output. End the module. Generate RTL realization and timing diagrams.
+Start the module using module projname(). Declare the inputs and outputs along with the select lines according to the multiplexer and demultiplexer. Use wire to assign intermediate outputs. Use and,or and not gates to get the desired output. End the module. Generate RTL realization and timing diagrams.
 
 
-PROGRAMS:
+    Program for flipflops  and verify its truth table in quartus using Verilog programming.
+
+    Developed by: MAHALAKSHMI S
+
+    RegisterNumber: 22008601
+
+program:
+
+    module mux(I0,I1,I2,I3,S0,S1,Y);
+    input I0,I1,I2,I3,S0,S1;
+    output Y;
+    wire S0C,S1C;
+    not(S0C,S0);
+    not(S1C,S1);
+    wire P,Q,R,S;
+    and(P,S0C,S1C,I0);
+    and(Q,S0C,S1,I1);
+    and(R,S0,S1C,I2);
+    and(S,S0,S1,I3);
+    or(Y,P,Q,R,S);
+    endmodule
 
 
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
+    Program for 1X4 DeMultiplexer and verify its truth table in quartus using Verilog programming.
+    Developed by: MAHALAKSHMI S
+    RegisterNumber: 22008601
 
-Developed by: MAHALAKSHMI S
+program:
 
-RegisterNumber: 22008601
-
-
-module mux(I0,I1,I2,I3,S0,S1,Y);
-
-input I0,I1,I2,I3,S0,S1;
-
-output Y;
-
-wire S0C,S1C;
-
-not(S0C,S0);
-
-not(S1C,S1);
-
-wire P,Q,R,S;
-
-and(P,S0C,S1C,I0);
-
-and(Q,S0C,S1,I1);
-
-and(R,S0,S1C,I2);
-
-and(S,S0,S1,I3);
-
-or(Y,P,Q,R,S);
-
-endmodule
-
-
-Program for 1X4 DeMultiplexer and verify its truth table in quartus using Verilog programming.
-
-Developed by: MAHALAKSHMI S
-
-RegisterNumber: 22008601
-
-
-module demux(I,S0,S1,Y0,Y1,Y2,Y3);
-
-input I,S0,S1;
-
-output Y0,Y1,Y2,Y3;
-
-wire S0C,S1C;
-
-not(S0C,S0);
-
-not(S1C,S1);
-
-and(Y0,I,S0C,S1C);
-
-and(Y1,I,S0C,S1);
-
-and(Y2,I,S0,S1C);
-
-and(Y3,I,S0,S1);
-
-endmodule
-
-
-
+    module demux(I,S0,S1,Y0,Y1,Y2,Y3);
+    input I,S0,S1;
+    output Y0,Y1,Y2,Y3;
+    wire S0C,S1C;
+    not(S0C,S0);
+    not(S1C,S1);
+    and(Y0,I,S0C,S1C);
+    and(Y1,I,S0C,S1);
+    and(Y2,I,S0,S1C);
+    and(Y3,I,S0,S1);
+    endmodule
 
 RTL LOGIC :
 
@@ -148,11 +126,9 @@ RTL LOGIC :
 
 ![Screenshot (52)](https://user-images.githubusercontent.com/122199968/212891934-dfe28d74-ce3b-442d-99e7-2b4609f7f86f.png)
 
-
 1X4 DE-MULTIPLEXER:
 
 ![Screenshot (54)](https://user-images.githubusercontent.com/122199968/212892182-12abfbde-9b30-48eb-8fcd-28a942e708e5.png)
-
 
 TIMING DIGRAMS:
 
@@ -161,13 +137,10 @@ TIMING DIGRAMS:
 ![Screenshot (55)](https://user-images.githubusercontent.com/122199968/212892455-ed8920b4-5daf-4c30-98cf-b984c90cab6e.png)
 
 
-
 ![Screenshot (56)](https://user-images.githubusercontent.com/122199968/212892598-79ac0811-28a6-44f7-8e05-57e140c56cbe.png)
 
 
-
 ![Screenshot (57)](https://user-images.githubusercontent.com/122199968/212892784-6c18409d-7896-4c7b-b99e-3c356d237bed.png)
-
 
 
 ![Screenshot (58)](https://user-images.githubusercontent.com/122199968/212892926-6289eefc-0491-47fc-81be-ff53a64717c5.png)
@@ -187,8 +160,6 @@ TRUTH TABLE:
 1X4 DE-MULTIPLEXER:
 
 ![Screenshot (61)](https://user-images.githubusercontent.com/122199968/212893855-bb402ef0-1191-41b9-9b46-aea5567b0cfa.png)
-
-
 
 
 RESULTS:
